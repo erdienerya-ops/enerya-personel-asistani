@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#142532">
+<meta name="description" content="Enerya Antalya personel işlemleri için bağımsız hesaplama aracı.">
+<meta name="author" content="Erdi Toklu">
+<title>Enerya Antalya | Personel Asistanı</title>
+<style>
+:root{--bg:#061426;--panel:#10253a;--panel2:#162d43;--line:#29445d;--text:#f5f8fc;--muted:#b4c7d9;--teal:#6399AE;--amber:#F1B434;--olive:#ABAD23;--red:#CF4520;--purple:#7C6992;--blue:#54b9e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#14395a 0%,transparent 38%),linear-gradient(150deg,#061426 0%,#08182b 55%,#10172c 100%);color:var(--text);font:15px/1.48 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+header{padding:22px 18px 12px;max-width:1080px;margin:auto}.brand{display:flex;align-items:center;gap:14px}.logo{width:58px;height:58px;flex:0 0 58px;border-radius:18px;background:linear-gradient(145deg,#173f58,#10263e);display:grid;place-items:center;color:#fff;border:1px solid #6399AE88;font-size:30px;position:relative;box-shadow:0 8px 24px #0005}.logo:after{content:' ';position:absolute;inset:-4px;border:1px solid #6399AE44;border-radius:22px}.brand h1{font-size:clamp(19px,4vw,25px);letter-spacing:.12em;margin:0;font-weight:850}.brand p{font-size:10px;letter-spacing:.2em;color:#9ec7d9;margin:3px 0 0}.brand-tools{margin-left:auto}.gear{border:1px solid #6399AE88;color:#d8f1ff;background:#102b48;border-radius:50%;width:48px;height:48px;font-size:22px;cursor:pointer}
+main{max-width:1080px;margin:auto;padding:0 16px 30px}.topline{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:9px 2px 16px;color:var(--muted);font-size:12px}.tag{display:inline-block;border-radius:99px;padding:5px 10px;background:#17354a;color:#cce6ef;border:1px solid #6399AE66;font-size:11px}
+body.home-active .tabs{display:none}.tabs{display:flex;gap:7px;overflow:auto;padding:3px 1px 13px;scrollbar-width:none}.tabs button{white-space:nowrap;border:1px solid #29445d;background:#10253a;color:var(--muted);padding:9px 12px;border-radius:12px;font-weight:650;cursor:pointer}.tabs button.active{background:linear-gradient(110deg,#6399AE,#477f94);color:#061426;border-color:#8bc6dc;box-shadow:0 5px 18px #6399AE44}
+.panel{display:none}.panel.active{display:block}.card{background:linear-gradient(145deg,#142c42,#0d2034);border:1px solid #34516a;border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:0 14px 32px #0003}.card h2{font-size:18px;margin:0 0 5px}.card h2:before{content:"";display:inline-block;width:5px;height:16px;border-radius:5px;background:var(--teal);margin-right:9px;vertical-align:-2px}.sub{color:var(--muted);font-size:12px;margin:0 0 15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}.field label{font-size:12px;color:var(--muted)}input,select{width:100%;background:#07182a;border:1px solid #35516a;color:var(--text);padding:12px;border-radius:11px;font:inherit;outline:none}input:focus,select:focus{border-color:#6399AE;box-shadow:0 0 0 2px #6399AE33}.btn{border:0;border-radius:12px;background:linear-gradient(110deg,#6399AE,#477F94);color:#061827;font-weight:800;padding:12px 15px;font:inherit;cursor:pointer}.btn.secondary{background:#19344a;color:var(--text);border:1px solid #6399AE88}.btn.danger{background:#512b2c;color:#ffe7e5;border:1px solid #CF452088}.btnrow{display:flex;gap:8px;flex-wrap:wrap}.result{background:#0b2032;border:1px solid #6399AE88;border-radius:15px;padding:14px;margin-top:12px}.result .big{font-size:26px;font-weight:850;color:#8dc9df;letter-spacing:-.03em}.muted{color:var(--muted)}.small{font-size:11px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#10283c;border:1px solid var(--line);padding:13px;border-radius:14px}.stat strong{display:block;font-size:22px;color:#8dc9df}.stat span{font-size:11px;color:var(--muted)}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:440px;font-size:13px}td,th{padding:9px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted);font-weight:600}.warning{color:var(--amber)}.late{color:#ed795c}.record{padding:12px 0;border-bottom:1px solid var(--line)}.record:last-child{border:0}.recordtop{display:flex;justify-content:space-between;gap:10px}.signature{margin:28px 0 5px;text-align:center;border-top:1px solid #7C699255;padding-top:18px;color:#9fe4ec;font-size:12px;letter-spacing:.1em}.signature strong{display:block;color:#e8e3f2;font-family:'Segoe Script', 'Brush Script MT', cursive;font-style:italic;font-size:32px;font-weight:400;margin-bottom:0;letter-spacing:0}.notice{font-size:11px;color:#8ea6b8;text-align:center;margin:8px 0 18px}.hidden{display:none!important}
+/* Modern home dashboard */
+.hero{position:relative;overflow:hidden;min-height:220px;padding:26px 24px;border-radius:26px;border:1px solid #3a7394;background:linear-gradient(105deg,#07182c 0%,#0c2d4c 54%,#15547a 100%);box-shadow:0 18px 38px #0005;margin:8px 0 22px;display:flex;align-items:center}.hero:before{content:"";position:absolute;width:390px;height:390px;border-radius:50%;right:-65px;top:-145px;background:radial-gradient(circle,#54b9e866 0%,#54b9e822 48%,transparent 70%)}.hero:after{content:"ANTALYA";position:absolute;right:20px;bottom:-12px;font-size:clamp(54px,12vw,110px);font-weight:900;letter-spacing:.08em;color:#ffffff0b}.hero-copy{position:relative;z-index:1;max-width:560px}.hero-kicker{display:inline-block;width:86px;height:7px;border-radius:9px;background:linear-gradient(90deg,var(--amber) 0 55%,#ffffff22 55%);margin-bottom:15px}.hero h2{font-size:clamp(25px,5vw,39px);line-height:1.12;margin:0 0 9px;letter-spacing:-.04em}.hero h2 span{display:block;font-weight:500;font-size:.78em;margin-bottom:3px}.hero p{font-size:15px;color:#d5e6f5;margin:0;font-style:italic}.hero-mark{position:absolute;right:25px;top:24px;font-size:90px;opacity:.13;filter:drop-shadow(0 8px 12px #000)}
+.home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-bottom:18px}.home-tile{position:relative;overflow:hidden;min-height:136px;border:1px solid #ffffff22;border-radius:22px;padding:17px 14px;background:linear-gradient(135deg,#17364e,#111f34);display:flex;align-items:center;gap:13px;text-align:left;color:var(--text);cursor:pointer;box-shadow:0 10px 24px #0003;transition:transform .18s,border-color .18s}.home-tile:active{transform:scale(.985)}.home-tile:after{content:"›";position:absolute;right:13px;top:50%;transform:translateY(-50%);font-size:35px;color:#c5d9e8;opacity:.85}.tile-icon{width:54px;height:54px;flex:0 0 54px;border-radius:17px;display:grid;place-items:center;font-size:29px;background:#ffffff12;border:1px solid #ffffff18}.tile-copy{padding-right:17px}.tile-copy strong{display:block;font-size:16px;line-height:1.2;margin-bottom:6px}.tile-copy small{display:block;color:#b9cde0;font-size:11px}.tile-teal{border-left:7px solid #6399AE;background:linear-gradient(115deg,#17465a,#14283c 75%)}.tile-teal .tile-icon{color:#66d7e8;background:#16b7c522}.tile-amber{border-left:7px solid #F1B434;background:linear-gradient(115deg,#514126,#172438 75%)}.tile-amber .tile-icon{color:#ffc64b;background:#f1b43422}.tile-olive{border-left:7px solid #ABAD23;background:linear-gradient(115deg,#444a24,#172438 75%)}.tile-olive .tile-icon{color:#d5e85b;background:#abad2322}.tile-red{border-left:7px solid #CF4520;background:linear-gradient(115deg,#512c2c,#172438 75%)}.tile-red .tile-icon{color:#ff8057;background:#cf452022}.tile-purple{border-left:7px solid #7C6992;background:linear-gradient(115deg,#40334f,#172438 75%)}.tile-purple .tile-icon{color:#d8b9ed;background:#7c699222}.tile-blue{border-left:7px solid #54b9e8;background:linear-gradient(115deg,#17415c,#172438 75%)}.tile-blue .tile-icon{color:#71d1ff;background:#54b9e822}.tile-info{display:flex;align-items:center;gap:13px;padding:15px 17px;border:1px solid #2b5974;border-radius:18px;background:linear-gradient(100deg,#0c263b,#10223a);margin-top:8px}.tile-info .info-icon{font-size:25px;color:#63d4e5}.tile-info strong{display:block;font-size:14px}.tile-info span{font-size:12px;color:#b9cde0;font-style:italic}.palette-line{display:flex;gap:7px;margin:18px 2px 0}.palette-line i{height:8px;flex:1;border-radius:99px}.home-stats{margin-bottom:17px}.home-stats .stat:nth-child(2) strong{color:#F1B434}.home-stats .stat:nth-child(3) strong{color:#ABAD23}.home-stats .stat:nth-child(4) strong{color:#CF4520}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.stats{grid-template-columns:repeat(4,1fr)}.home-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-tile{min-height:150px;padding:20px 22px}.tile-icon{width:65px;height:65px;flex-basis:65px;font-size:34px}.tile-copy strong{font-size:19px}.tile-copy small{font-size:13px}.hero{min-height:245px;padding:34px}}
+@media(max-width:390px){.home-tile{min-height:125px;padding:12px 9px;gap:9px}.tile-icon{width:43px;height:43px;flex-basis:43px;font-size:24px;border-radius:13px}.tile-copy strong{font-size:14px}.tile-copy small{font-size:10px}.home-tile:after{right:7px;font-size:28px}}
+</style>
+</head>
+<body class="home-active">
+<header>
+ <div class="brand"><div class="logo">♨</div><div><h1>ENERYA ANTALYA</h1><p>PERSONEL ASİSTANI</p></div></div>
+</header>
+<main>
+ <div class="topline"><span>Hızlı · Doğru · Güvenilir</span><span class="tag">Yerel kayıt • Çevrimdışı kullanım</span></div>
+ <nav class="tabs" id="tabs">
+  <button class="active" data-tab="home">Genel Bakış</button><button data-tab="connection">Bağlantı / BBS</button><button data-tab="guarantee">Güvence</button><button data-tab="workplace">İşyeri</button><button data-tab="central">Merkezi Sistem</button><button data-tab="individual">Münferit</button>
+ </nav>
+
+ <section class="panel active" id="home">
+  <div class="hero"><div class="hero-copy"><span class="hero-kicker"></span><h2><span>Enerya Antalya</span>Personel Asistanı</h2><p>Tüm hesaplamalar, tek uygulamada</p></div><div class="hero-mark">♨</div></div>
+  <div class="home-grid">
+   <button class="home-tile tile-teal" onclick="tab('connection')"><span class="tile-icon">♨</span><span class="tile-copy"><strong>BBS ve<br>Bağlantı Bedeli</strong><small>Hızlı hesaplama</small></span></button>
+   <button class="home-tile tile-amber" onclick="tab('guarantee')"><span class="tile-icon">⌂</span><span class="tile-copy"><strong>Konut<br>Güvence Bedeli</strong><small>Güvence hesabı</small></span></button>
+   <button class="home-tile tile-olive" onclick="tab('workplace')"><span class="tile-icon">▤</span><span class="tile-copy"><strong>İşyeri Tüketim<br>Hesabı</strong><small>Tüketim analizi</small></span></button>
+   <button class="home-tile tile-red" onclick="tab('central')"><span class="tile-icon">▦</span><span class="tile-copy"><strong>Merkezi Sistem</strong><small>Ortak alan hesabı</small></span></button>
+   <button class="home-tile tile-purple" onclick="tab('individual')"><span class="tile-icon">▧</span><span class="tile-copy"><strong>Münferit Teklif</strong><small>Teklif ve vergiler</small></span></button>
+   
+   
+   
+  </div>
+  
+  </div>
+  <div class="tile-info"><span class="info-icon">ⓘ</span><div><strong>Güçlü altyapı. Daha verimli çalışma.</strong><span>Enerya Antalya ekibi için bağımsız personel yardımcı aracı.</span></div></div>
+  <div class="signature"><strong>Erdi Toklu</strong>tarafından geliştirilmiştir.</div>
+  <div class="palette-line"><i style="background:#6399AE"></i><i style="background:#F1B434"></i><i style="background:#ABAD23"></i><i style="background:#CF4520"></i><i style="background:#7C6992"></i></div>
+ </section>
+
+ <section class="panel" id="connection">
+  <div class="card"><h2>Abone bağlantı bedeli</h2><p class="sub">Excel'deki BBS tablosu ve formül: 1 BBS için temel bedel + her ilave BBS için artış. Vergi ve damga vergisi ayrıca hesaplanır.</p>
+   <div class="grid"><div class="field"><label>Bağımsız birim sayısı (BBS)</label><input id="bbs" type="number" min="1" value="1"></div><div class="field"><label>veya toplam alan (m²)</label><input id="area" type="number" min="0" placeholder="Örn. 245"></div></div>
+   <div class="field"><label>Hesaplama tercihi</label><select id="bbsMode"><option value="bbs">BBS adedine göre</option><option value="area">m² değerinden BBS bul</option></select></div>
+   <div class="grid"><div class="field"><label>Bağlantı bedeli (₺)</label><input id="connectionBase" type="number" value="8066" step="0.01"></div><div class="field"><label>Her ilave BBS (₺)</label><input id="connectionStep" type="number" value="7016" step="0.01"></div><div class="field"><label>KDV oranı (%)</label><input id="vatRate" type="number" value="20" step="0.01"></div><div class="field"><label>Damga vergisi oranı (%)</label><input id="stampRate" type="number" value="0.948" step="0.001"></div></div>
+   <button class="btn" onclick="calcConnection()">Hesapla</button><div id="connectionResult" class="result hidden" aria-live="polite"></div>
+  </div>
+  <div class="card"><h2>m² → BBS tablosu</h2><p class="sub">Excel'deki aralıklar: 0–200 m² = 1 BBS; sonraki her 100 m² için 1 BBS artar.</p><div class="small">201–300 = 2 BBS · 301–400 = 3 BBS · 401–500 = 4 BBS · 501–600 = 5 BBS …</div></div>
+ </section>
+
+ <section class="panel" id="guarantee">
+  <div class="card"><h2>Konut güvence bedeli</h2><p class="sub">Cihaz adetlerini seç. Güvence bedeli ve damga vergisi ayrı gösterilir.</p>
+   <div class="grid" id="applianceFields"></div><div class="field"><label>Damga vergisi oranı (%)</label><input id="gStampRate" type="number" value="0.948" step="0.001"></div>
+   <button class="btn" onclick="calcGuarantee()">Güvence bedelini hesapla</button><div id="guaranteeResult" class="result hidden"></div>
+  </div>
+ </section>
+
+ <section class="panel" id="workplace">
+  <div class="card"><h2>İşyeri tüketim güvence bedeli</h2><p class="sub">Excel formülü: (çalışma saati × kapasite × güncel birim fiyat + cihaz güvence bedelleri) × damga vergisi katsayısı.</p>
+   <div class="grid"><div class="field"><label>Çalışma saati</label><input id="workHours" type="number" value="300" step="1"></div><div class="field"><label>Kapasite</label><input id="workCapacity" type="number" value="12.8" step="0.01"></div><div class="field"><label>Güncel birim fiyat</label><input id="workUnit" type="number" value="29.647106" step="0.000001"></div><div class="field"><label>Ocak adedi</label><input id="workOven" type="number" value="2" min="0"></div><div class="field"><label>Kombi adedi</label><input id="workBoiler" type="number" value="0" min="0"></div><div class="field"><label>Şofben adedi</label><input id="workHeater" type="number" value="1" min="0"></div><div class="field"><label>Damga vergisi oranı (%)</label><input id="workStamp" type="number" value="0.948" step="0.001"></div></div>
+   <button class="btn" onclick="calcWorkplace()">Hesapla</button><div id="workResult" class="result hidden"></div>
+  </div>
+ </section>
+
+ <section class="panel" id="central">
+  <div class="card"><h2>Merkezi sistem güvence bedeli</h2><p class="sub">Excel'deki birim güvence bedeli 3.599 ₺. BBS adedi ile çarpılır ve damga vergisi eklenir.</p>
+   <div class="grid"><div class="field"><label>BBS adedi</label><input id="centralBbs" type="number" min="1" value="1"></div><div class="field"><label>Birim bedel (₺)</label><input id="centralUnit" type="number" value="3599" step="0.01"></div><div class="field"><label>Damga vergisi (%)</label><input id="centralStamp" type="number" value="0.948" step="0.001"></div></div>
+   <button class="btn" onclick="calcCentral()">Hesapla</button><div id="centralResult" class="result hidden"></div>
+  </div>
+ </section>
+
+ <section class="panel" id="individual">
+  <div class="card"><h2>Münferit teklif fiyatı</h2><p class="sub">Teklif tutarını gir. Hesaplanan toplam tutar görüntülenir.</p>
+   <div class="field"><label>Teklif fiyatı (₺)</label><input id="offerPrice" type="number" min="0" step="0.01" placeholder="Örn. 100000"></div>
+   <button class="btn" onclick="calcIndividual()">Teklifi hesapla</button><div id="individualResult" class="result hidden" aria-live="polite"></div>
+  </div>
+ </section>
+
+ 
+
+ 
+ <div class="notice">Bu uygulama bağımsız bir personel yardımcı aracıdır; Enerya'nın resmî uygulaması değildir. Hesaplama sonuçlarını işlem öncesinde yürürlükteki resmî tarife ve mevzuatla doğrulayın.</div>
+</main>
+<script>
+const money=n=>new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',maximumFractionDigits:2}).format(Number(n)||0);
+const val=id=>Number(document.getElementById(id).value)||0;
+const fmt=n=>new Intl.NumberFormat('tr-TR',{maximumFractionDigits:2}).format(n);
+function tab(id){
+  document.querySelectorAll('.panel').forEach(x=>x.classList.toggle('active',x.id===id));
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));
+  document.body.classList.toggle('home-active',id==='home');
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.tab)));
+function show(id,html){
+  const el=document.getElementById(id);
+  el.innerHTML=html;
+  el.classList.remove('hidden');
+}
+function bbsForArea(m){
+  if(!Number.isFinite(m)||m<=0)throw new Error('Alan 0 m² üzerinde olmalıdır.');
+  return m<=200?1:Math.ceil((m-200)/100)+1;
+}
+function calcConnection(){
+  let count;
+  try{
+    count=document.getElementById('bbsMode').value==='area'?bbsForArea(val('area')):Math.max(1,Math.floor(val('bbs')));
+  }catch(e){alert(e.message);return;}
+  let base=val('connectionBase')+(count-1)*val('connectionStep');
+  let vat=base*val('vatRate')/100;
+  let stamp=base*val('stampRate')/100;
+  show('connectionResult',`<div class="small">Hesaplanan bağımsız birim</div><div class="big">${count} BBS</div><div class="record">Bağlantı bedeli <b>${money(base)}</b></div><div class="record">KDV (%${fmt(val('vatRate'))}) <b>${money(vat)}</b></div><div class="record">Damga vergisi (%${fmt(val('stampRate'))}) <b>${money(stamp)}</b></div><div class="record">Genel toplam <b class="big">${money(base+vat+stamp)}</b></div>`);
+}
+const appliances=[['oven','Ocak',249],['boiler','Kombi',4097],['heater','Şofben',498],['stove','Soba',3599]];
+document.getElementById('applianceFields').innerHTML=appliances.map(([k,n,v])=>`<div class="field"><label>${n} adedi</label><input id="a_${k}" type="number" min="0" value="${k==='oven'?1:0}"></div>`).join('');
+function calcGuarantee(){
+  let base=appliances.reduce((s,[k,n,v])=>s+val('a_'+k)*v,0);
+  let stamp=base*val('gStampRate')/100;
+  show('guaranteeResult',`<div class="record">Güvence bedeli <b>${money(base)}</b></div><div class="record">Damga vergisi <b>${money(stamp)}</b></div><div class="record">Toplam <b class="big">${money(base+stamp)}</b></div>`);
+}
+function calcWorkplace(){
+  let appliancesTotal=val('workOven')*249+val('workBoiler')*4097+val('workHeater')*498;
+  let consumption=val('workHours')*val('workCapacity')*val('workUnit');
+  let base=consumption+appliancesTotal;
+  let stamp=base*val('workStamp')/100;
+  show('workResult',`<div class="record">Tüketim hesabı (${fmt(val('workHours'))} × ${fmt(val('workCapacity'))} × ${fmt(val('workUnit'))}) <b>${money(consumption)}</b></div><div class="record">Cihaz güvence bedelleri <b>${money(appliancesTotal)}</b></div><div class="record">Vergisiz ara toplam <b>${money(base)}</b></div><div class="record">Damga vergisi <b>${money(stamp)}</b></div><div class="record">Genel toplam <b class="big">${money(base+stamp)}</b></div>`);
+}
+function calcCentral(){
+  let base=val('centralBbs')*val('centralUnit');
+  let stamp=base*val('centralStamp')/100;
+  show('centralResult',`<div class="record">Güvence bedeli <b>${money(base)}</b></div><div class="record">Damga vergisi <b>${money(stamp)}</b></div><div class="record">Toplam <b class="big">${money(base+stamp)}</b></div>`);
+}
+function calcIndividual(){
+  let offer=val('offerPrice');
+  if(offer<=0){alert('Lütfen geçerli bir teklif fiyatı gir.');return;}
+  let stamp=offer*.948/100;
+  let vat=offer*.20;
+  let total=offer+stamp+vat;
+  show('individualResult',`<div class="small">Hesaplanan toplam tutar</div><div class="big">${money(total)}</div>`);
+}
+</script>
+</body></html>
